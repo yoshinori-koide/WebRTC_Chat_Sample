@@ -56,7 +56,7 @@ WebRTC でのチャットアプリのサンプルです。
 	$ grunt
 
 でsrc以下の.litcoffeeをビルドし、js/main.jsを生成します。んで、そのまま*.litcoffeeのwatchを続けます。
-菅氏が不必要な場合はCTRL+Cで抜けてください。
+監視が不必要な場合はCTRL+Cで抜けてください。
 
 ## ローカルでの実行について
 
