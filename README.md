@@ -4,7 +4,10 @@ WebRTC でのチャットアプリのサンプルです。
 
 クライアント間の通信はWebRTCで行い、データの保存はlocalstorageで行います。
 
-現状、WebRTCがスマホで動くのはAndroid版Chromeのみなので、対象ブラウザもAndroid版Chromeのみとします。
+現状、WebRTCがスマホで動くのはAndroid版Chromeのみ、PCではChrome及びFirefoxです。IEとSafariでは動きません。
+
+上記の対象ブラウザで http://2015-camppro.github.io/WebRTC_Chat_Sample/ を開いてください。
+
 
 ## 大まかな画面遷移
 
@@ -14,14 +17,8 @@ WebRTC でのチャットアプリのサンプルです。
 
 ## ユーザー情報のデータ項目
 
-* 表示名 … チャット窓に表示される名前
+* 表示名 … チャット窓などUI上に表示される名前
 * 識別キー … ユーザーを識別するキー。WebRTCでは接続ごとに振られるIDは毎回異なるので、"ユーザー"を識別するためには別途キーが必要。
-
-## チャットの画面構成
-
-基本のターゲットはスマホサイズとする。
-
-上段はチャット窓、中央に地図、最下部に入力窓を配置する。
 
 ## モジュールの構成
 
@@ -30,15 +27,16 @@ WebRTC でのチャットアプリのサンプルです。
 
 	src/
 		app … アプリケーションのエントリーポイント
-		action/
-			ChatAction … アクションメソッドとイベントのバインド
+		actions/
+			ChatActions … アクションメソッドとイベントのバインド
 		components/
-			MainSection … 画面要素エレメントのトップ
-			UserData … ユーザー情報入力画面
-			ChatWindow … チャット画面
-			MessageDisplay … 発言されたメッセージの描画画面
-			MessageItem … チャットメッセージ描画項目
-			MessageInput … メッセージの入力画面
+			ChatApp ... チャットアプリの全体構成
+			ChatInput ... テキストの入力欄
+			ChatItem ... 1件のメッセージを表示
+			EditProf ... プロフィールの入力画面
+			MainSection ... チャットメッセージ表示＋入力欄のメイン画面
+			UserItem ... ユーザーの1件表示
+			UsersSection ... ユーザーリスト表示
 		constants/
 			ChatConstants … イベントラベルの列挙
 		dispatcher/
@@ -46,7 +44,7 @@ WebRTC でのチャットアプリのサンプルです。
 		store/
 			ChatStore … データ保存とイベント発火ポイント
 		webrtc/
-			Chat … WebRTCによる接続と待ち受け
+			ChatComm … WebRTCによる接続とチャットデータの送受信
 
 ## ローカルでのビルド
 適当なフォルダに本リポジトリのファイル丸ごとダウンロードし、
