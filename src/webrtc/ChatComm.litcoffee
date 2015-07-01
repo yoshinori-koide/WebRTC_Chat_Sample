@@ -14,7 +14,6 @@ connectionは基本的に非同期で通信できるが、シーケンスが重�
 ## 依存モジュールのロード
 ```coffeescript
 
-	ChatConstants = require '../constants/ChatConstants'
 	ChatActions = require '../actions/ChatActions'
 	assign = require 'object-assign'
 
